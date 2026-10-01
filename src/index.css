@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+@theme {
+  /* MINDORA Brand Palette */
+  --color-mindora-ink: #171A24;
+  --color-mindora-cream: #F6F4EF;
+  --color-mindora-lavender: #9A8FE8;
+  --color-mindora-mint: #B8DCCB;
+  --color-mindora-coral: #F18F79;
+  --color-mindora-slate: #898B96;
+
+  /* Primary Brand Scale (Derived from deep ink and muted lavender) */
+  --color-brand-50: #f5f4fb;
+  --color-brand-100: #eae8f7;
+  --color-brand-200: #d7d3f0;
+  --color-brand-300: #bcb4e6;
+  --color-brand-400: #9a8fe8;
+  --color-brand-500: #7e6fe0;
+  --color-brand-600: #6554d1;
+  --color-brand-700: #5242b5;
+  --color-brand-800: #423694;
+  --color-brand-900: #171A24;
+  --color-brand-950: #0f1118;
+
+  /* Backward Compatibility Aliases for neurova tokens */
+  --color-neurova-50: var(--color-brand-50);
+  --color-neurova-100: var(--color-brand-100);
+  --color-neurova-200: var(--color-brand-200);
+  --color-neurova-300: var(--color-brand-300);
+  --color-neurova-400: var(--color-brand-400);
+  --color-neurova-500: var(--color-brand-500);
+  --color-neurova-600: var(--color-brand-600);
+  --color-neurova-700: var(--color-brand-700);
+  --color-neurova-800: var(--color-brand-800);
+  --color-neurova-900: var(--color-mindora-ink);
+  --color-neurova-950: var(--color-brand-950);
+
+  /* Surface System with Warm Editorial Tones */
+  --color-surface-0: #ffffff;
+  --color-surface-50: #F6F4EF;
+  --color-surface-100: #eeebe3;
+  --color-surface-200: #e0dcd2;
+  --color-surface-300: #c9c4b7;
+  --color-surface-400: #898B96;
+  --color-surface-500: #686b77;
+  --color-surface-600: #4b4e5c;
+  --color-surface-700: #2c303f;
+  --color-surface-800: #1e212f;
+  --color-surface-900: #171A24;
+  --color-surface-950: #0d0f15;
+
+  /* Semantic Feedback */
+  --color-success-400: #57d494;
+  --color-success-500: #3eb579;
+  --color-success-600: #2d9460;
+  --color-warning-400: #f6b555;
+  --color-warning-500: #e8992a;
+  --color-warning-600: #c87a15;
+  --color-error-400: #F18F79;
+  --color-error-500: #e76f55;
+  --color-error-600: #cf5238;
+
+  /* Cognitive Categories with Refined Pastel/Ink Harmony */
+  --color-memory: #9A8FE8;
+  --color-attention: #F18F79;
+  --color-speed: #4aa8d8;
+  --color-problem: #5bbd8b;
+  --color-spatial: #e382b8;
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Radius Tokens - refined architectural radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadow Tokens */
+  --shadow-xs: 0 1px 2px rgba(23, 26, 36, 0.04);
+  --shadow-sm: 0 1px 3px rgba(23, 26, 36, 0.06), 0 1px 2px rgba(23, 26, 36, 0.04);
+  --shadow-md: 0 4px 8px rgba(23, 26, 36, 0.06), 0 2px 4px rgba(23, 26, 36, 0.04);
+  --shadow-lg: 0 12px 24px rgba(23, 26, 36, 0.07), 0 4px 8px rgba(23, 26, 36, 0.04);
+  --shadow-xl: 0 20px 32px rgba(23, 26, 36, 0.09), 0 8px 12px rgba(23, 26, 36, 0.04);
+  --shadow-glow: 0 0 24px rgba(154, 143, 232, 0.22);
+  --shadow-glow-strong: 0 0 40px rgba(154, 143, 232, 0.35);
+}
+
+/* Google Fonts loaded via @import at top of file */
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface-50);
+  color: var(--color-surface-900);
+  line-height: 1.6;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Typography helpers */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-mindora-lavender);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-300);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-surface-400);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(92, 124, 250, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(92, 124, 250, 0.4); }
+}
+
+.animate-fade-in { animation: fadeIn 0.4s ease-out; }
+.animate-fade-in-up { animation: fadeInUp 0.5s ease-out; }
+.animate-fade-in-scale { animation: fadeInScale 0.3s ease-out; }
+.animate-slide-in-right { animation: slideInRight 0.4s ease-out; }
+.animate-pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
+.animate-count-up { animation: countUp 0.6s ease-out; }
+.animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+
+/* Stagger delays */
+.stagger-1 { animation-delay: 0.05s; animation-fill-mode: both; }
+.stagger-2 { animation-delay: 0.1s; animation-fill-mode: both; }
+.stagger-3 { animation-delay: 0.15s; animation-fill-mode: both; }
+.stagger-4 { animation-delay: 0.2s; animation-fill-mode: both; }
+.stagger-5 { animation-delay: 0.25s; animation-fill-mode: both; }
+.stagger-6 { animation-delay: 0.3s; animation-fill-mode: both; }
